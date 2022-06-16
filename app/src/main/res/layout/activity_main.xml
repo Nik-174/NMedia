@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/offset"
+    android:padding="@dimen/commonSpacing"
     tools:context=".MainActivity">
 
     <ImageView
@@ -20,7 +20,7 @@
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/offset"
+        android:layout_marginStart="@dimen/commonSpacing"
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/published"
@@ -34,7 +34,7 @@
         android:id="@+id/published"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/offset"
+        android:layout_marginStart="@dimen/commonSpacing"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toStartOf="@id/menu"
         app:layout_constraintStart_toEndOf="@+id/avatar"
@@ -48,12 +48,13 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/menu"
+
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/author"
         app:layout_constraintTop_toTopOf="@+id/avatar"
         app:srcCompat="@drawable/ic_baseline_more_vert_24"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTop"
@@ -66,10 +67,11 @@
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
+        android:layout_margin="@dimen/commonSpacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrierTop"
+
         tools:text="@sample/posts.json/data/content" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -80,72 +82,69 @@
         app:constraint_referenced_ids="content" />
 
     <ImageButton
-        android:id="@+id/favourite"
+        android:id="@+id/liked"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="@dimen/offset"
+        android:layout_marginTop="@dimen/commonSpacing"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/favourite"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:contentDescription="@string/liked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrierBottom"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
 
     <TextView
-        android:id="@+id/favouriteCount"
+        android:id="@+id/likedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
-        app:layout_constraintBottom_toBottomOf="@+id/favourite"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/favourite"
-        app:layout_constraintTop_toTopOf="@+id/favourite"
+        android:layout_marginStart="@dimen/commonSpacingSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/liked"
+        app:layout_constraintStart_toEndOf="@+id/liked"
+        app:layout_constraintTop_toTopOf="@+id/liked"
         tools:text="@sample/posts.json/data/favouriteCount" />
 
     <ImageButton
-        android:id="@+id/share"
+        android:id="@+id/shared"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
+        android:layout_margin="@dimen/commonSpacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/share"
-        app:layout_constraintEnd_toStartOf="@+id/shareCount"
-        app:layout_constraintStart_toEndOf="@+id/favouriteCount"
+        app:layout_constraintEnd_toStartOf="@+id/sharedCount"
+        app:layout_constraintStart_toEndOf="@+id/likedCount"
         app:layout_constraintTop_toBottomOf="@id/barrierBottom"
         app:srcCompat="@drawable/ic_baseline_share_24"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 
     <TextView
-        android:id="@+id/shareCount"
+        android:id="@+id/sharedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
-        app:layout_constraintBottom_toBottomOf="@+id/share"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/share"
-        app:layout_constraintTop_toTopOf="@+id/share"
+        android:layout_marginStart="@dimen/commonSpacingSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/shared"
+        app:layout_constraintStart_toEndOf="@id/shared"
+        app:layout_constraintTop_toTopOf="@+id/shared"
         tools:text="@sample/posts.json/data/shareCount" />
 
     <TextView
-        android:id="@+id/viewed"
+        android:id="@+id/viewedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
+        android:layout_marginTop="@dimen/commonSpacing"
+        app:layout_constraintBottom_toBottomOf="@+id/viewed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@id/barrierBottom"
         tools:text="@sample/posts.json/data/viewCount" />
 
     <ImageView
-        android:id="@+id/view"
+        android:id="@+id/viewed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/offset"
-        android:contentDescription="@string/view"
-        app:layout_constraintEnd_toStartOf="@+id/viewed"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_margin="@dimen/commonSpacing"
+        app:layout_constraintEnd_toStartOf="@+id/viewedCount"
         app:layout_constraintTop_toBottomOf="@id/barrierBottom"
-        app:srcCompat="@drawable/ic_baseline_remove_red_eye_24" />
-
+        app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
+        android:contentDescription="@string/viewed" />
 </androidx.constraintlayout.widget.ConstraintLayout>
