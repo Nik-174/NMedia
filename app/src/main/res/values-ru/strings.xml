@@ -7,4 +7,6 @@
     <string name="favourite">Фаворит</string>
     <string name="share">Поделиться</string>
     <string name="view">Просмотров</string>
+    <string name="liked">Понравилось</string>
+    <string name="viewed">Просмотрено</string>
 </resources>

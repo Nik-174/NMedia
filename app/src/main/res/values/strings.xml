@@ -6,4 +6,6 @@
     <string name="favourite">favourite</string>
     <string name="share">share</string>
     <string name="view">view</string>
+    <string name="liked">liked</string>
+    <string name="viewed">viewed</string>
 </resources>
