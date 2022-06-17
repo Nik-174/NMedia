@@ -89,6 +89,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cancelButton.setOnClickListener {
+
+            viewModel.cancelEdit()
             binding.editedField.clearFocus()
             binding.editedField.setText("")
             binding.oldContent.text = ""
