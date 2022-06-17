@@ -9,4 +9,13 @@
     <string name="view">Просмотров</string>
     <string name="liked">Понравилось</string>
     <string name="viewed">Просмотрено</string>
+    <string name="menuRemove">Удаление</string>
+    <string name="toastSaveMessage">Содержимое пусто</string>
+    <string name="editViewHintMessage">Добавить контент</string>
+    <string name="menuEdit">Редактировать</string>
+    <string name="headerOldContent">Изменить сообщение</string>
+    <string name="emotionsImage">Изображение</string>
+    <string name="createImage">Создать изображение</string>
+    <string name="cancelButton">Отмена</string>
+    <string name="savebutton">Сохранение</string>
 </resources>

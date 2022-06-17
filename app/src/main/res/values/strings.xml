@@ -8,4 +8,13 @@
     <string name="view">view</string>
     <string name="liked">liked</string>
     <string name="viewed">viewed</string>
+    <string name="menuRemove">Remove</string>
+    <string name="toastSaveMessage">Content empty</string>
+    <string name="editViewHintMessage">Add content</string>
+    <string name="menuEdit">Edit</string>
+    <string name="headerOldContent">Edit message</string>
+    <string name="emotionsImage">emotionsImage</string>
+    <string name="createImage">createImage</string>
+    <string name="cancelButton">cancelButton</string>
+    <string name="savebutton">saveButton</string>
 </resources>
