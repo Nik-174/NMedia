@@ -76,13 +76,14 @@ class PostRepositoryInMemory : PostRepository {
         if (post.id == 0L) {
             val newId = posts.firstOrNull()?.id ?: post.id
             posts = listOf(
-                post.copy(id = newId + 1)) + posts
+                post.copy(id = newId + 1)
+            ) + posts
             data.value = posts
             return
         }
 
         posts = posts.map {
-            if (it.id != post.id ) {
+            if (it.id != post.id) {
                 it
             } else {
                 it.copy(content = post.content)
