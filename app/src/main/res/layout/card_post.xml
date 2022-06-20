@@ -55,7 +55,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/author"
-        app:layout_constraintTop_toTopOf="@+id/avatar" />
+        app:layout_constraintTop_toTopOf="@+id/avatar"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTop"
@@ -102,7 +103,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:checkable="false"
         android:contentDescription="@string/app_name"
         app:icon="@drawable/ic_baseline_share_24"
         app:layout_constraintBottom_toBottomOf="@+id/liked"
@@ -116,7 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:checkable="false"
         android:clickable="false"
         android:contentDescription="@string/app_name"
         app:icon="@drawable/ic_baseline_remove_red_eye_24"
