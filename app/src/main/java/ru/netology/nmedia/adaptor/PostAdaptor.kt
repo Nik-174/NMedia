@@ -2,6 +2,7 @@ package ru.netology.nmedia.adaptor
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -16,7 +17,7 @@ interface ActionListener{
     fun onShareClick(post: Post)
     fun onRemoveClick(post: Post)
     fun onEditClick(post: Post)
-    fun onCancelEditClick(post: Post)
+    fun onPlayMedia(post: Post)
 }
 
 fun convertCount2String(count: Long): String {
@@ -60,10 +61,19 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
+
             shared.text = convertCount2String(post.sharedCount)
             viewed.text = convertCount2String(post.viewedCount)
             liked.isChecked = post.likedByMe
             liked.text = convertCount2String(post.likedCount)
+
+            if (post.videoURL != "") {
+                videoPreview.setImageResource(R.mipmap.ic_video_preview_foreground)
+                playButton.visibility = View.VISIBLE
+            } else
+            {
+                playButton.visibility = View.INVISIBLE
+            }
 
             liked.setOnClickListener {
                 actionListener.onLikeClick(post)
@@ -88,6 +98,14 @@ class PostViewHolder(
                         }
                     }
                 }.show()
+            }
+
+            playButton.setOnClickListener {
+                actionListener.onPlayMedia(post)
+            }
+
+            videoPreview.setOnClickListener {
+                actionListener.onPlayMedia(post)
             }
         }
     }

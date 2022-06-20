@@ -17,4 +17,7 @@
     <string name="createImage">createImage</string>
     <string name="cancelButton">cancelButton</string>
     <string name="savebutton">saveButton</string>
+    <string name="likeCheckBoxDescription" translatable="false">Like</string>
+    <string name="chooser_share_post" translatable="false">Share post</string>
+    <string name="error_empty_content" translatable="false">Empty content</string>
 </resources>
