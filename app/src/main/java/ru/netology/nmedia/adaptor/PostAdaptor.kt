@@ -12,7 +12,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
-interface ActionListener{
+interface ActionListener {
     fun onLikeClick(post: Post)
     fun onShareClick(post: Post)
     fun onRemoveClick(post: Post)
@@ -70,8 +70,7 @@ class PostViewHolder(
             if (post.videoURL != "") {
                 videoPreview.setImageResource(R.mipmap.ic_video_preview_foreground)
                 playButton.visibility = View.VISIBLE
-            } else
-            {
+            } else {
                 playButton.visibility = View.INVISIBLE
             }
 

@@ -13,6 +13,4 @@
         <item name="android:minWidth">0dp</item>
         <item name="iconPadding">@dimen/commonSpacingSmall</item>
     </style>
-
-
 </resources>
