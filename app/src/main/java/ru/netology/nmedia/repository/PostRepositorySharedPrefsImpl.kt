@@ -19,13 +19,16 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
     private val data = MutableLiveData(posts)
 
     init {
-        prefs.getString(key, null)?.let {
+        prefs.getString(key, null)?.let{
             posts = gson.fromJson(it, type)
             data.value = posts
         }
     }
 
     override fun getAll(): LiveData<List<Post>> = data
+    override fun getAll_http(): List<Post> {
+        TODO("Not yet implemented")
+    }
 
     override fun likeById(id: Long) {
         posts = posts.map { post ->
@@ -40,6 +43,10 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
         }
         data.value = posts
         sync()
+    }
+
+    override fun likeById_http(id: Long): Post {
+        TODO("Not yet implemented")
     }
 
     override fun shareById(id: Long) {
@@ -86,42 +93,11 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
         sync()
     }
 
-    private fun sync() {
-        /*   posts = listOf(
-               Post(
-                   id = 3,
-                   author = "Нетология. Пост 3",
-                   published = "21 мая в 18:36",
-                   content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
-                   likedCount = 1999,
-                   sharedCount = 0,
-                   viewedCount = 2678,
-                   videoURL = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
-               ),
-               Post(
-                   id = 2,
-                   author = "Нетология. Пост 2",
-                   published = "22 мая в 18:36",
-                   content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
-                   likedCount = 999,
-                   sharedCount = 9998,
-                   viewedCount = 13457,
-                   videoURL = "",
-               ),
-               Post(
-                   id = 1,
-                   author = "Нетология. Пост 1",
-                   published = "22 мая в 18:36",
-                   content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
-                   likedCount = 999,
-                   sharedCount = 9998,
-                   viewedCount = 13457,
-                   videoURL = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
-               )
-           )*/
-        with(prefs.edit()) {
+    private fun sync(){
+         with(prefs.edit()){
             putString(key, gson.toJson(posts))
             apply()
         }
     }
+
 }

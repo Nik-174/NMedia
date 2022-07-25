@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/commonSpacing"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.FeedFragment">
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/avatarSize"
         android:layout_height="@dimen/avatarSize"
         android:layout_marginBottom="@dimen/commonSpacing"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/appName"
         app:layout_constraintBottom_toTopOf="@id/barrierTop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:checkable="false"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/appName"
         app:icon="@drawable/ic_baseline_share_24"
         app:layout_constraintBottom_toBottomOf="@+id/liked"
         app:layout_constraintStart_toEndOf="@id/liked"
@@ -140,7 +140,7 @@
         android:background="@android:color/transparent"
         android:checkable="false"
         android:clickable="false"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/appName"
         app:icon="@drawable/ic_baseline_remove_red_eye_24"
         app:layout_constraintBottom_toBottomOf="@id/liked"
         app:layout_constraintEnd_toEndOf="parent"

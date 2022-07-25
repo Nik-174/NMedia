@@ -27,7 +27,12 @@ class PostRepositoryFileImpl(val context: Context) : PostRepository {
         }
     }
 
+ //   override fun getAll(): LiveData<List<Post>> = data
+
     override fun getAll(): LiveData<List<Post>> = data
+    override fun getAll_http(): List<Post> {
+        TODO("Not yet implemented")
+    }
 
     override fun likeById(id: Long) {
         posts = posts.map { post ->
@@ -42,6 +47,10 @@ class PostRepositoryFileImpl(val context: Context) : PostRepository {
         }
         data.value = posts
         sync()
+    }
+
+    override fun likeById_http(id: Long): Post {
+        TODO("Not yet implemented")
     }
 
     override fun shareById(id: Long) {
@@ -88,8 +97,8 @@ class PostRepositoryFileImpl(val context: Context) : PostRepository {
         sync()
     }
 
-    private fun sync() {
-        /*posts = listOf(
+    private fun sync(){
+/*        posts = listOf(
             Post(
                 id = 3,
                 author = "Нетология. Пост 3",
@@ -121,7 +130,7 @@ class PostRepositoryFileImpl(val context: Context) : PostRepository {
                 videoURL = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
             )
         )*/
-        context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {
+        context.openFileOutput(filename,Context.MODE_PRIVATE).bufferedWriter().use {
             it.write(gson.toJson(posts))
         }
     }

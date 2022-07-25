@@ -1,6 +1,5 @@
 package ru.netology.nmedia.adaptor
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +17,7 @@ interface ActionListener {
     fun onRemoveClick(post: Post)
     fun onEditClick(post: Post)
     fun onPlayMedia(post: Post)
+    fun onPreviewPost(post: Post)
 }
 
 fun convertCount2String(count: Long): String {
@@ -106,8 +106,13 @@ class PostViewHolder(
             videoPreview.setOnClickListener {
                 actionListener.onPlayMedia(post)
             }
+
+            content.setOnClickListener {
+                actionListener.onPreviewPost(post)
+            }
         }
     }
+
 }
 
 class PostDiffItemCallback : DiffUtil.ItemCallback<Post>() {
